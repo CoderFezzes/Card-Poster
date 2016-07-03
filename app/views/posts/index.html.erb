@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red waves-effect waves-light" href="posts/new">
+      <i class="large material-icons">
+        add
+      </i>
+    </a>
+  </div>
+  <% @posts.each do |post| %>
+    <div class="card">
+      <div class="card-image">
+        <img src="<%=post.image%>" alt="Post Image">
+        <span class="card-title"><%=post.title%></span>
+      </div>
+      <div class="card-content">
+        <p><%=post.content%></p>
+      </div>
+      <div class="card-action">
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit', edit_post_path(post) %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br>
